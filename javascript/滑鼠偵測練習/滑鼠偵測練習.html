@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #cat {
+            background-color: #fa0;
+            font-size: 60px;
+            height: 300px;
+            width: 300px;
+            text-align: center;
+            line-height: 300px;
+            position: absolute;
+            top: 300px;
+            left: 0px;
+            transform:  rotate(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cat">這是貓</div>
+    <script>
+        var cat = document.getElementById('cat');
+        // var body = document.getElementsByTagName('body')[0];
+        document.addEventListener('mousemove',move,false);
+        function move(e) {
+            cat.style.transform=`rotate(${e.clientX}deg)`;
+            cat.style.left=`${e.clientX}px`;
+            console.log(e.clientX);
+            console.log('asdadadasd');
+            // console.log(cat.style.transform);
+        }
+    </script> 
+
+
+</body>
+
+</html>

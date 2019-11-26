@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        div {
+            perspective: 2000px;
+            perspective-origin: bottom;
+            width: 100%;
+            height: 100vh;
+            margin: auto;
+
+            background-color: aquamarine;
+
+        }
+
+        .paper {
+            height:20000px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transform-style: preserve-3d;
+            transform-origin: bottom;
+            transform: translateZ(000px) rotateX(80deg) translateY(100px);
+            background-color: brown;
+            animation: move 10s infinite;
+        }
+        @keyframes move{
+            0%{
+                transform: translateZ(-2000px) rotateX(80deg) translateY(500px);
+            }
+            100%{
+                transform: translateZ(-2000px) rotateX(80deg) translateY(18000px);
+            }
+        }
+
+        .text {
+            transform: translateZ(400px) rotateX(-150deg);
+            color: #000;
+            text-shadow: 0 0 3px #000;
+            font-size: 60px;
+            width: 1000px;
+            background-color: rgba(255,255,255,0.6);
+            /* animation: textm 10s infinite; */
+        }
+
+        @keyframes textm{
+            0%{
+                transform: translateZ(400px) rotateX(0deg);
+            }
+            50%{
+                transform: translateZ(400px) rotateX(-40deg);
+            }
+            100%{
+                transform: translateZ(400px) rotateX(-80deg);
+            }
+        }
+
+        img {
+            transform: rotateX(-40deg);
+            width: 1500px;
+            height: 1500px;
+            position: absolute;
+        }
+        img:nth-child(1){
+            left: -1600px;
+            top: 0%;
+        }
+        img:nth-child(2){
+            right: -1600px;
+            top: 20%;
+        }
+        img:nth-child(3){
+            right: -1600px;
+            top: 40%;
+        }
+        img:nth-child(4){
+            left: -1600px;
+            top: 40%;
+        }
+        img:nth-child(5){
+            top: 80%;
+            right: -1600px;
+        }
+        img:nth-child(6){
+            top:60%;
+            left: -1600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="paper">
+            <img src="0.png" alt="">
+            <img src="1.png" alt="">
+            <img src="2.png" alt="">
+            <img src="3.png" alt="">
+            <img src="4.png" alt="">
+            <img src="5.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

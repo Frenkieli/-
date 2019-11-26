@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes rubberBand {
+
+            from {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1) ;
+            }
+            30% {
+                -webkit-transform: scale(1.25, 0.75);
+                transform: scale(1.25, 0.75) ;
+            }
+
+            40% {
+                -webkit-transform: scale(0.75, 1.25);
+                transform: scale(0.75, 1.25) ;
+            }
+
+            50% {
+                -webkit-transform: scale(1.15, 0.85);
+                transform: scale(1.15, 0.85) ;
+            }
+
+            65% {
+                -webkit-transform: scale(0.95, 1.05);
+                transform: scale(0.95, 1.05) ;
+            }
+
+            75% {
+                -webkit-transform: scale(1.05, 0.95);
+                transform: scale(1.05, 0.95) ;
+            }
+
+            to {
+                -webkit-transform: scale(1, 1) ;
+                transform: scale(1, 1) ;
+            }
+
+        }
+
+        .rubberBand {
+            animation:rubberBand 1.5s ease-in-out infinite;
+            background-color: #fa0;
+            width: 400px;        /* 寬度 */
+            height: 400px;
+            margin: 200px auto;
+            border-radius: 40px; /* 大小的十分之一比較像果凍 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rubberBand"></div>
+</body>
+
+</html>

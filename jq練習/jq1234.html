@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #buttom {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="p">原味</p>
+    <input id="buttom" type="button" onclick="reset()" value="按鈕">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('#buttom').mouseenter(function () {
+            $('#buttom').on('moveright()','movetop()');
+            $('#bottom').off('moveright()');
+            $('#buttom').on('animationEnd','movebottom()');
+            $('#bottom').off('movebottom()');
+            $('#buttom').on('animationEnd','moveleft()');
+            $('#bottom').off('moveleft()');
+            $('#buttom').on('animationEnd','movetop()');
+            $('#bottom').off('movetop()');
+        })
+
+        function moveright() {
+            $('#buttom').animate({'top': '300px'},'fast');
+        }
+        function moveleft() {
+            $('#buttom').animate({'right': '300px'},'fast');
+        }
+        function movetop() {
+            $('#buttom').animate({'buttom': '300px'},'fast');
+        }
+        function movebottom() {
+            $('#buttom').animate({'left': '300px'},'fast');
+        }
+        // $('#buttom').mouseenter(function () {
+        //     $('#buttom').on('animationEnd', moveright());
+        //     $('#buttom').off(moveright());
+        //     $('#buttom').on('animationEnd', movebottom());
+        //     $('#buttom').off(movebottom());
+        //     $('#buttom').on('animationEnd', moveleft());
+        //     $('#buttom').off(moveleft());
+        //     $('#buttom').on('animationEnd', movetop());
+        //     $('#buttom').off(movetop());
+        // })
+
+        // function moveright() {
+        //     $('#buttom').animate({ 'right': '300px' }, 'sloy').css('right','');
+        // }
+        // function moveleft() {
+        //     $('#buttom').animate({ 'left': '300px' , 'left': ''}, 'sloy');
+        // }
+        // function movetop() {
+        //     $('#buttom').animate({ 'top': '300px' , 'top': ''}, 'sloy');
+        // }
+        // function movebottom() {
+        //     $('#buttom').animate({ 'bottom': '300px' ,'bottom': '' }, 'sloy');
+        // }
+        // function reset() {
+        //     function moveright() {
+        //         $('#buttom').animate({ 'right': '300px', 'left': '0' }, 'sloy');
+        //     }
+        //     function moveleft() {
+        //         $('#buttom').animate({ 'left': '300px', 'right': '0' }, 'sloy');
+        //     }
+        //     function movetop() {
+        //         $('#buttom').animate({ 'top': '300px' }, 'sloy');
+        //     }
+        //     function movebottom() {
+        //         $('#buttom').animate({ 'bottom': '300px' }, 'sloy');
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

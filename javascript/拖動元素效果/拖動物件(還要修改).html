@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 80%;
+            margin: 100px auto;
+            border: 3px double rgba(0, 0, 0, 0.3);
+            height: 500px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left {
+            width: 50%;
+            margin: 10px;
+            border: 3px double rgba(0, 0, 0, 0.3);
+            height: calc(100% - 20px);
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .right {
+            width: 50%;
+            margin: 10px;
+            border: 3px double rgba(0, 0, 0, 0.3);
+            height: calc(100% - 20px);
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .dropitem {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            /* pointer-events: painted;                    */
+            }
+
+        .dropitem img {
+            width: 100%;
+            height: 100%;
+            pointer-events: painted;
+        }
+
+        .dropitem p{
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            font-size: 20px;
+            text-align: center;
+            background-color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+
+<!-- 參考網站 https://pjchender.blogspot.com/2017/08/html5-drag-and-drop-api.html -->
+
+<body>
+    <div class="box">
+        <div class="left">
+            <div id='dropitem1' class="dropitem" draggable="true">
+                <img src="https://picsum.photos/300/200/?random=1" draggable="false">
+                <p>這是一張隨機圖片.</p>
+            </div>
+            <div id='dropitem2' class="dropitem" draggable="true">
+                <img src="https://picsum.photos/300/200/?random=2" draggable="false">
+                <p>這是一張隨機圖片.</p>
+            </div>
+            <div id='dropitem3' class="dropitem" draggable="true">
+                <img src="https://picsum.photos/300/200/?random=3" draggable="false">
+                <p>這是一張隨機圖片.</p>
+            </div>
+            <div id='dropitem4' class="dropitem" draggable="true">
+                <img src="https://picsum.photos/300/200/?random=4" draggable="false">
+                <p>這是一張隨機圖片.</p>
+            </div>
+            <div id='dropitem5' class="dropitem" draggable="true">
+                <img src="https://picsum.photos/300/200/?random=5" draggable="false">
+                <p>這是一張隨機圖片.</p>
+            </div>
+            <div id='dropitem6' class="dropitem" draggable="true">
+                <img src="https://picsum.photos/300/200/?random=6" draggable="false">
+                <p>這是一張隨機圖片.</p>
+            </div>
+        </div>
+        <!-- draggable是可否拖動，每個物件有相關的預設值 -->
+        <div class="right">
+            <!-- data-role　 -->
+        </div>
+    </div>
+    <script>
+        var leftbox = document.getElementsByClassName('left')[0];
+
+        var dropitems = document.querySelectorAll('.dropitem');
+
+        var rightbox = document.getElementsByClassName('right')[0];
+
+        dropitems.forEach(e => {
+            e.addEventListener('drop', dondrop);
+        });
+        
+        // 為陣列物件快速加入事件的寫法
+
+        function dondrop(e) {
+            // e.preventDefault();
+            e.stopPropagation();
+            console.log('防止錯誤')
+            // 用來防止拖動到相同圖片上的取消事件
+        }
+
+        function dragstart(e) {
+            e.dataTransfer.setData('text/plain', e.target.id);
+            console.log('開始');
+
+            // 暫時儲存拖動中的物件，並獲得相關物件
+        }
+        function dropped(e) {
+            cancelDefault(e);
+            let id = e.dataTransfer.getData('text/plain');
+            e.target.appendChild(document.querySelector('#' + id));
+
+            // 將拖動中的物件放入
+        }
+        function cancelDefault(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // 取消相關預設事件
+        }
+
+        leftbox.addEventListener('dragstart', dragstart)
+        leftbox.addEventListener('drop', dropped)
+        leftbox.addEventListener('dragenter', cancelDefault)
+        leftbox.addEventListener('dragover', cancelDefault)
+
+        rightbox.addEventListener('dragstart', dragstart)
+        rightbox.addEventListener('drop', dropped)
+        rightbox.addEventListener('dragenter', cancelDefault)
+        rightbox.addEventListener('dragover', cancelDefault)
+
+        // 放入事件
+
+    </script>
+</body>
+
+</html>

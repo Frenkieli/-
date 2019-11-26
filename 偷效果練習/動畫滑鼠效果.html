@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes rubberBand {
+            from {
+                -webkit-transform: scale(1, 1, 1);
+                transform: scale(1, 1, 1);
+            }
+
+            30% {
+                -webkit-transform: scale(1.25, 0.75);
+                transform: scale(1.25, 0.75);
+            }
+
+            40% {
+                -webkit-transform: scale(0.75, 1.25);
+                transform: scale(0.75, 1.25);
+            }
+
+            50% {
+                -webkit-transform: scale(1.15, 0.85);
+                transform: scale(1.15, 0.85);
+            }
+
+            65% {
+                -webkit-transform: scale(0.95, 1.05);
+                transform: scale(0.95, 1.05);
+            }
+
+            75% {
+                -webkit-transform: scale(1.05, 0.95);
+                transform: scale(1.05, 0.95);
+            }
+
+            to {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1);
+            }
+        }
+
+        .rubberBand {
+            /* animation:rubberBand 1.5s ease-in-out; */
+            background-color: #fa0;
+            transform: scale(1, 1);
+            width: 250px;
+            height: 250px;
+            margin: 200px auto;
+            /* transition: 1s; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rubberBand"></div>
+    <script>
+        var rubberBand = document.getElementsByClassName('rubberBand')[0];
+        window.onmousemove = function (e) {
+            rubberBand.style.transform = `scale(${e.pageX / 1000 % 2}, ${e.pageY / 500 % 2})`;
+        };
+    </script>
+
+    
+</body>
+
+</html>

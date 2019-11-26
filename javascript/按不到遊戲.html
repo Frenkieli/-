@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            height: 100vh;
+            background-color: #333;
+        }
+        #move {
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            transition: 0.1s ease-in-out;
+            width: 200px;
+            height: 100px;
+            font-size: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="按我按我！" name="move" id="move" onclick="noway()">
+    <script src="rand.js"></script>
+    <script>
+        var btn = document.getElementsByName('move')[0];
+        var hig = window.innerHeight;
+        var wig = window.innerWidth;
+        function noway(){
+            window.alert('怎麼可能????');
+        }
+        function move() {
+            var goh = rand(100, hig-100)+'px';
+            var gow = rand(200, wig-200)+'px';
+            btn.style.left = gow;
+            btn.style.top = goh;
+        }
+        function clocl(){
+            setInterval(move,100);
+        }
+        function inload() {
+
+            btn.addEventListener('mouseenter', move, false);
+            setTimeout(clocl , 3000);
+        }
+
+        window.addEventListener('load', inload, false);
+    </script>
+</body>
+
+</html>

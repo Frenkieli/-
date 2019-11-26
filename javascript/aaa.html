@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #move{
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            transition: 0.1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="按我按我！" name="move" id="move">
+    <script>
+        var btn = document.getElementsByName('move')[0];
+
+        function moveright() {
+            btn.style.left= '800px';
+            btn.removeEventListener('mouseenter', moveright, false);
+            btn.addEventListener('mouseenter',movebottom,false);
+        }
+        function movebottom() {
+            btn.style.top= '800px';
+            btn.removeEventListener('mouseenter', movebottom, false);
+            btn.addEventListener('mouseenter',moveleft,false);
+        }
+        function moveleft() {
+            btn.style.left = '200px';
+            btn.removeEventListener('mouseenter', moveleft, false);
+            btn.addEventListener('mouseenter',movetop,false);
+        }
+        function movetop() {
+            btn.style.top = '200px';
+            btn.removeEventListener('mouseenter', movetop, false);
+            btn.addEventListener('mouseenter',moveright,false);
+        }
+        function inload() {
+
+            btn.addEventListener('mouseenter', moveright, false);
+        }
+
+        window.addEventListener('load', inload, false);
+    </script>
+</body>
+
+</html>

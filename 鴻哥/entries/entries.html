@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <div id="root"></div>
+    <script>
+        const component = {one:36, two:42, three:53};
+        const dom =bulidDOM(component)
+        const bulidBody = document.getElementById("root");
+        bulidBody.innerHTML = dom;
+
+
+
+        function bulidDOM(data) {
+            return(`
+            <div class="addTable">
+                ${Object.entries(data).map(([key,val])=>(`
+                    <div>${key}號是${val}</div>
+                `)).join('')}
+            </div>
+            `)
+        }
+
+
+
+    </script>
+</body>
+</html>

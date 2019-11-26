@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+    }
+    .box{
+      perspective: 2000px;
+      perspective-origin: top;
+    }
+    .container {
+      width: 1200px;
+      height: 1200px;
+      margin: auto;
+      top: 0%;
+      /* background-color: #ff0; */
+      border-radius: 50%;
+      transform-style: preserve-3d;
+      transform:translateZ(-600px) translateY(30%) rotateX(110deg) rotate(-50deg);
+      animation: rotateMove 12s linear infinite;
+    }
+
+    @keyframes rotateMove {
+      0% {
+        transform:translateZ(-600px) translateY(30%) rotateX(110deg) rotate(-50deg);
+      }
+
+      100% {
+        transform:translateZ(-600px) translateY(30%) rotateX(110deg) rotate(310deg);
+      }
+    }
+
+    .float_img {
+      position: absolute;
+      transform-origin: bottom;
+      transform: translate(-50%, -50%) rotateX(-90deg);
+      animation: imgrotate 12s linear infinite;
+    }
+
+    @keyframes imgrotate {
+      0% {
+        transform: translate(-50%, -50%) rotateX(-90deg) rotateY(-50deg);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) rotateX(-90deg) rotateY(310deg);
+      }
+    }
+
+    .car {
+      top: 5%;
+      left: 50%;
+    }
+
+    .umbrella {
+      top: 95%;
+      left: 50%;
+    }
+
+    .bird {
+      top: 50%;
+      left: 5%;
+    }
+
+    .bear {
+      top: 50%;
+      left: 95%;
+    }
+
+    .rotateImg {
+      position: relative;
+      animation: imgshow 12s linear infinite;
+    }
+
+    .car .rotateImg {
+      transform-origin: bottom;
+      transform: rotateX(90deg);
+      animation-delay: -6s;
+    }
+
+    .umbrella .rotateImg {
+      transform-origin: bottom;
+      transform: rotateX(90deg);
+      animation-delay: 0s;
+    }
+
+    .bird .rotateImg {
+      transform-origin: bottom;
+      transform: rotateX(90deg);
+      animation-delay: -9s;
+    }
+
+    .bear .rotateImg {
+      transform-origin: bottom;
+      transform: rotateX(90deg);
+      animation-delay: -3s;
+    }
+
+    #earth_div {
+      width: 100%;
+      height: 100%;
+      position: absolute !important;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      transform:translate(-50%,-50%) rotateX(-90deg) rotateY(-50deg) translateY(-30%);
+      animation:earth 12s linear infinite;
+    }
+    @keyframes earth {
+      0%{
+        transform:translate(-50%,-50%) rotateX(-90deg) rotateY(-50deg) translateY(-30%);
+      }100%{
+        transform:translate(-50%,-50%) rotateX(-90deg) rotateY(310deg) translateY(-30%);
+      }
+      
+    }
+
+    @keyframes imgshow {
+      0% {
+        transform: rotateX(90deg);
+      }
+
+      5% {
+        transform: rotateX(0deg);
+      }
+
+      20% {
+        transform: rotateX(0deg);
+      }
+
+      25% {
+        transform: rotateX(90deg);
+      }
+
+      50% {
+        transform: rotateX(90deg);
+      }
+      55%{
+        transform: rotateX(0deg);
+      }
+
+      70%{
+        transform: rotateX(0deg);
+      }
+
+      75% {
+        transform: rotateX(90deg);
+      }
+
+      100% {
+        transform: rotateX(90deg);
+      }
+    }
+  </style>
+</head>
+
+<body onload="initialize()">
+  <div class="box">
+    <div class="container">
+    <div id="earth_div"></div>
+      <div class="float_img car">
+        <img class="rotateImg" src="car.png">
+      </div>
+      <div class="float_img umbrella">
+        <img class="rotateImg" src="umbrella.png">
+      </div>
+      <div class="float_img bird">
+        <img class="rotateImg" src="bird.png">
+      </div>
+      <div class="float_img bear">
+        <img class="rotateImg" src="bear.png">
+      </div>
+    </div>
+  </div>
+  <script src="http://www.webglearth.com/v2/api.js"></script>
+  <script>
+
+    function initialize() {
+      var earth = new WE.map('earth_div');
+      earth.setView([46.8011, 8.2266], 2);
+      WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
+        tileSize: 256,
+        bounds: [[-85, -180], [85, 180]],
+        minZoom: 0,
+        maxZoom: 16,
+        attribution: 'WebGLEarth example',
+        tms: true
+      }).addTo(earth);
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 960px;
+            background-color: #aaa;
+        }
+
+        .clearfix {
+            height: 10px;
+            background-color: #f0a;
+            clear: left;
+        }
+
+        .wrap {
+        }
+
+        .wrapA {
+            float: left;
+            background-color: red;
+            width: 200px;
+            height: 100px;
+        }
+
+        .wrapB {
+            float: right;
+            background-color: #0af;
+            width: 100px;
+            height: 300px;
+        }
+
+        .wrapC{
+            background-color: #a0f;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="wrap wrapA">A</div>
+        <div class="wrap wrapB">B</div>
+        <div class="clearfix"></div>
+        <div class="wrapC">C</div>
+    </div>
+</body>
+
+</html>

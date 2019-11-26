@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body {
+            height: 5000px;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+        #logo {
+            height: 200px;
+            width: 200px;
+            float: left;
+        }
+
+        .ul_list {
+            width: 200px;
+        }
+        nav , li{
+        background-color: #F9F9F9;
+        }
+        .ul_list a {
+            width: 200px;
+            height: 50px;
+            display: inline-block;
+            background-color: #F1E8D8;
+            text-decoration: none;
+            color: #AB7325;
+            line-height: 50px;
+            text-align: center;
+            font-size: 36px;
+        }
+        .ul_list_left a{
+            margin: 30px 0;
+        }
+        .ul_list_top {
+            width: 100%;
+        }
+
+        .ul_list li {
+            float: left;
+        }
+        .nav_list_top li{
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <nav>
+                <ul class="ul_list ul_list_left">
+                    <li><a href="#">貓貓介紹</a></li>
+                    <li><a href="#">美食餐點</a></li>
+                    <li><a href="#">愛貓小物</a></li>
+                    <li><a href="#">來電看看</a></li>
+                    <li><a href="#">我要加入</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+        <img src="pic/catfilm.gif" alt="">
+        <div class="clearfix"></div>
+        <nav class="nav_list_top">
+            <img id="logo" src="pic/logo.svg" alt="">
+            <ul class="ul_list ul_list_top">
+                <li><a href="#">貓貓介紹</a></li>
+                <li><a href="#">美食餐點</a></li>
+                <li><a href="#">愛貓小物</a></li>
+                <li><a href="#">來電看看</a></li>
+                <li><a href="#">我要加入</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </nav>
+        
+    </header>
+</body>
+
+</html>

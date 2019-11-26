@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div_pink {
+            position: relative;
+            height: 50px;
+            width: 50px;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div_pink"></div>
+
+    <script>
+        var obj = document.getElementsByClassName('div_pink')[0];
+        obj.style.backgroundColor = 'pink';
+        document.addEventListener('touchmove', function (event) { // 如果這個元素的位置內只有一個手指的話
+            if (event.targetTouches.length == 1) {
+                var touch = event.targetTouches[0];
+                // 把元素放在手指所在的位置
+                obj.style.left = touch.pageX + 'px';
+                obj.style.top = touch.pageY + 'px';
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

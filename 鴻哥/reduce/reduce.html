@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const objArr = [
+            {key:"one", val:42},
+            {key:"two", val:78},
+            {key:"three", val:23},
+            {key:"one", val:54}];
+        const dom = bulidDOM(objArr);
+        const bulidbody = document.getElementById("root");
+        bulidDOM.innerHTML = dom;
+
+
+
+        function bulidDOM(data) {
+            let result = objArr.reduce((prev, curr) => {
+                sum = prev[curr["key"]] || 0;
+                console.log(sum)
+                return({
+                    ...prev,
+                    [curr["key"]]:(curr["val"]+sum)
+                })
+            },{});
+            console.log(result)
+        }
+
+
+
+        // function bulidDOM(data) {
+        //     let counts = objArr.reduce((prev, curr) => {
+        //         let count = prev.get(curr.key) || 0;
+        //         prev.set(curr.key, curr.val + count);
+        //         return prev;
+        //     },new Map());
+        //     for(var pair of counts.entries()) {
+        //         console.log(pair[0]+ ':'+ pair[1]); 
+        //     }
+        // }
+
+
+
+    </script>
+</body>
+</html>

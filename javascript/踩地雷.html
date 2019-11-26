@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 100px auto 30px;
+        }
+
+        td {
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #000;
+        }
+        input{
+            margin: auto;
+            width: 300px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1px">
+        <tr>
+            <td class="block1">1</td>
+            <td class="block2">2</td>
+            <td class="block3">3</td>
+            <td class="block4">4</td>
+        </tr>
+        <tr>
+            <td class="block5">5</td>
+            <td class="block6">6</td>
+            <td class="block7">7</td>
+            <td class="block8">8</td>
+        </tr>
+        <tr>
+            <td class="block9">9</td>
+            <td class="block10">10</td>
+            <td class="block11">11</td>
+            <td class="block12">12</td>
+        </tr>
+        <tr>
+            <td class="block13">13</td>
+            <td class="block14">14</td>
+            <td class="block15">15</td>
+            <td class="block16">16</td>
+        </tr>
+    </table>
+    <input type="button" value="重來" onclick="reset()" >
+    <script src="rand.js"></script>
+    <script>
+        var td = document.getElementsByTagName('td');
+        function clicll() {
+            (this).style.backgroundColor = "#555";
+        }
+        function cliclll() {
+            (this).style.backgroundColor = "#f00";
+        }
+        function reset() {
+
+            for (i=0;i <td.length;i++) {
+                td[i].style.backgroundColor="#eee";
+                td[i].addEventListener('click', clicll, false);
+            }
+            var bomm = rand(0, 15);
+            td[bomm].removeEventListener('click', clicll, false);
+            td[bomm].addEventListener('click', cliclll, false);
+        }
+
+        window.addEventListener('load', reset, false);
+    </script>
+</body>
+
+</html>

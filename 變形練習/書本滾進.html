@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .bookstore {
+            margin: 100px 00px 0 500px;
+        }
+
+        .box {
+            width: 500px;
+            height: 800px;
+            transform: skew(60deg);
+            background-color: #fa0;
+            padding: 0;
+            transition: 1s;
+        }
+
+        .book {
+            width: 300px;
+            height: 300px;
+            background-color: #0af;
+            transform: skew(-60deg);
+            margin: 0 0 -200px 300px;
+            box-shadow: -5px -5px 4px 0px #000;
+            position: relative;
+        }
+        .book:hover{
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bookstore">
+        <div class="box">
+
+            <div class="book">第一本書</div>
+            <div class="book">第二本書</div>
+            <div class="book">第三本書</div>
+            <div class="book">第四本書</div>
+            <div class="book">第五本書</div>
+        </div>
+    </div>
+</body>
+
+</html>

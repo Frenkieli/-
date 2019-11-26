@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        .wrap{
+            width: 1200px;
+            margin: 100px auto;
+        }
+        .item{
+            width: 360px;
+            float: left;
+            margin: 20px;
+            background-color: #000;
+            color: aliceblue;
+            position: relative;
+        }
+        .item img{
+            width: 100%;
+        }
+        .news{
+            background-color: #fa0;
+            position: absolute;
+            top: 10px;
+            left: -10px;
+        }
+        .news::after{
+            content: '';
+            border-top: #e90 10px solid;
+            border-left: transparent 10px solid;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="item">
+            <div class="news">AMOS++</div>
+            <img src="https://picsum.photos/300/200/?random=1">
+            <h2>title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In doloremque beatae pariatur molestias autem, alias est ea nobis quidem aliquam asperiores vel tempore facere deleniti. Laboriosam voluptatum aliquid tenetur labore!</p>
+        </div>
+        <div class="item">
+            <div class="news">AMOS++</div>
+            <img src="https://picsum.photos/300/200/?random=1">
+            <h2>title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In doloremque beatae pariatur molestias autem, alias est ea nobis quidem aliquam asperiores vel tempore facere deleniti. Laboriosam voluptatum aliquid tenetur labore!</p>
+        </div>
+        <div class="item">
+            <div class="news">AMOS++</div>
+            <img src="https://picsum.photos/300/200/?random=1">
+            <h2>title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In doloremque beatae pariatur molestias autem, alias est ea nobis quidem aliquam asperiores vel tempore facere deleniti. Laboriosam voluptatum aliquid tenetur labore!</p>
+        </div>
+    </div>
+
+</body>
+</html>

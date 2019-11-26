@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+    
+            .css {
+                position: absolute;
+                left: 0;
+                /* display: none; */
+                width: 1;
+            }
+    
+            body {
+                position: relative;
+            }
+    
+            #buttom {
+                position: absolute;
+                right: 800px;
+                top: 200px;
+                transition: 0.3s;
+            }
+            #p{
+                padding-top: 200px;
+                text-align: center;
+                font-size: 60px;
+            }
+            .test{
+                height: 200px;
+                width: 200px;
+                background-color: #eee;
+            }
+            /* .down {} */
+        </style>
+    </head>
+    
+    <body>
+        <div class="test"></div>
+        <p class="css"></p>
+        <p id="p">原味</p>
+        <input id="buttom" type="button" onclick="reset()" value="按鈕">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            var check = false;
+            // $('#buttom').addClass("test");
+            $('#buttom').mouseenter(function () {
+                if(!$('#buttom').hasClass('test')){
+                    $('#buttom').addClass('test');
+                }
+                else{
+                    $('.test').mouseenter(function () {
+                        console.log('ghjhgj');
+                        $('#buttom').animate({'right': '0px'},'fast');
+                        $('#buttom').removeClass('test');
+                        // $('.text').off(mouseenter();
+                })}
+            })
+
+
+            // 物件.on('事件', 函式名稱);
+            // 物件.off('事件', 函式名稱);
+            // function 函式名稱(){
+
+            // }
+
+            
+            // 物件.on('animationEnd', 函式名稱);
+            // $('.test').mouseenter(function () {
+            //     console.log('ghjhgj');
+            //     $('#buttom').animate({'right': '0px'},'fast');
+            // })
+            function reset() {
+                $('#buttom').animate({'right': '800px'},'fast');
+                $('#buttom').animate({'top': '200px'},'fast');
+                $('#p').html('回位');
+                setTimeout("check = 0",1000);
+            }
+            // console.log(check);
+            // if (check) {
+            //     $('#buttom').mouseenter(function () {
+            //         $('#buttom').css('right', '0px');
+            //         $('#buttom').css('top', '400px');
+            //         $('#p').text('向下邊');
+            //         check += 1;
+            //     })
+            // }
+            console.log(check);
+            function cantcatchme(){
+                var x = y = 0;
+                
+            }
+            </script>
+</body>
+</html>

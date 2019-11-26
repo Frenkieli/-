@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wantbox {
+            width: 475px;
+            height: 643px;
+            background-image: url(Wanted_Posters.jpg);
+            background-size: contain;
+            /* 利用背景方式將尋賞背景定位達成大小都可以再用其他圖片調整*/
+            position: relative;
+        }
+        .wantbox img{
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50% ,0);
+            margin: auto;
+            width: 50%;
+            height: 40%;
+            filter: grayscale(80%);
+            opacity: 0.8;
+            /* 控制圖片效果透明度 */
+            padding: 10px;
+            background-color: #fff;
+        }
+        .text{
+            width: 90%;
+            bottom: 20%;
+            left: 0%;
+            right: 0%;
+            margin: auto;
+            text-align: center;
+            color: black;
+            position: absolute;
+            font-size: 60px;
+            /* 這邊可以再改其他字體 */
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- 參考網站 https://progressbar.tw/posts/47 -->
+    <!-- 純 JavaScript 版本-->
+
+    <!-- HTML part -->
+    <!-- multipart/form-data： 不對字元編碼，在使用包含檔案上傳控制元件的表單時，必須使用該值 -->
+    <!-- 參考網站 https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/-->
+
+    <form action="" enctype="multipart/form-data">
+        <input type="file" onchange="readURL(this)" targetID="preview_progressbarTW_img"
+            accept="image/gif, image/jpeg, image/png" />
+
+        <div class="wantbox">
+            <img id="preview_progressbarTW_img" src="#" alt='請上傳圖片'>
+            <div class="text">100,000,000</div>
+        </div>
+    </form>
+    <!-- JavaScript part -->
+    <script>
+
+        // 藉由上方的this將這個物件的位置直接抓取
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                // .files是抓取檔案用函式,這兩個是判斷是否有值存在
+                // var imageTagID = input.getAttribute("targetID");
+                // 返回 input內targetID內的值但下方我已經改寫掉了
+
+                var reader = new FileReader();
+                // FileReader是一個暫存檔案用的儲存方式
+
+                // 這邊我不明白,判斷是將該圖片地址放進img的src中使用
+                reader.onload = function (e) {
+                    var img = document.getElementById('preview_progressbarTW_img');
+                    img.setAttribute("src", e.target.result)
+                }
+                reader.readAsDataURL(input.files[0]);
+                // 這邊我不明白
+
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes raindrop {
+            0% {
+                /* 0%時，transform不變為0 */
+                transform: translate(0, 0)
+            }
+
+            100% {
+                /* 100%時變透明，transform位移模擬下雨時的移動 */
+                transform: translate(10px, 25px);
+                opacity: 0;
+                stroke: blue;
+            }
+        }
+
+        .rain {
+            animation: raindrop 1s infinite;
+        }
+
+        /* 每滴雨的delay不同 */
+        .rain2 {
+            animation-delay: .4s;
+        }
+
+        .rain3 {
+            animation-delay: .7s;
+        }
+
+        .rain4 {
+            animation-delay: 1s;
+        }
+
+        .rain5 {
+            stroke: #fa0;
+            animation: fla 1.5s infinite both;
+        }
+
+        @keyframes fla{
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(0, 0);
+            }
+
+            55% {
+                transform: translate(10px, 25px);
+            }
+
+            60% {
+                transform: translate(0, 0);
+            }
+
+            65% {
+                transform: translate(10px, 25px);
+            }
+
+            100% {
+                transform: translate(10px, 25px);
+                opacity: 0;
+                stroke: blue;
+            }
+        }
+
+        .cou {
+            fill: gray;
+            animation: cou 1.5s infinite;
+        }
+
+        @keyframes cou {
+            0% {
+                fill: gray;
+            }
+
+            50% {
+                fill: gray;
+            }
+
+            55% {
+                fill: #f00;
+            }
+
+            60% {
+                fill: gray;
+            }
+
+            65% {
+                fill: #f00;
+            }
+
+            100% {
+                fill: gray;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- css         vs      svg(不用加單位) -->
+    <!-- border-color           stroke -->
+    <!-- border-width           stroke-width -->
+    <!-- background-color       fill -->
+    <!-- left/top               x/y(cx/cy) -->
+    <!-- width/height           width/height -->
+
+    <!-- line(x1 y1 x2 y2) 線(第一點座標x y 第二點座標x y) -->
+    <!-- rect(x y width height) 方形(方形中心座標x y 寬 高) -->
+    <!-- circle(cx cy r) 圓形(圓形中心座標cx cy 半徑) -->
+    <!-- ellipse(cx cy rx ry) 橢圓(橢圓中心座標cx cy x軸半徑rx y軸半徑ry) -->
+    <!-- polyline(points="x1 y1,x2 y2 ....") 曲線圖(第一點座標,第二點座標) -->
+
+    <!-- svg範圍 -->
+    <svg width="100" height="100">
+        
+        <line class="rain rain1" x1="20" y1="50" x2="25" y2="60" stroke-width="2" stroke="blue"></line>
+        <line class="rain rain2" x1="30" y1="50" x2="35" y2="60" stroke-width="2" stroke="blue"></line>
+        <line class="rain rain3" x1="10" y1="50" x2="15" y2="60" stroke-width="2" stroke="blue"></line>
+        <line class="rain rain4" x1="35" y1="50" x2="40" y2="60" stroke-width="2" stroke="blue"></line>
+        <line class="rain rain5" x1="15" y1="50" x2="200" y2="600" stroke-width="2"></line>
+        <circle class="cou" cx="20" cy="20" r="40"></circle>
+
+        <!-- svg會有順序問題，越下面的會蓋住上面的 -->
+
+    </svg>
+
+</body>
+
+</html>

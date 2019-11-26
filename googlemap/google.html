@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #map {
+            margin: 200px 0;
+            height: 800px;
+            width: 100%;
+        }
+
+        #legend {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            padding: 10px;
+            margin: 100px 10px;
+            border: 3px solid #000;
+            bottom: 0 !important;
+        }
+
+        #legend h3 {
+            margin-top: 0;
+        }
+
+        #legend img {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+    <div id="legend">
+        <h3>Legend</h3>
+    </div>
+    <script>
+        var map;
+        function initMap() {
+
+            // Create a new StyledMapType object, passing it an array of styles,
+            // and the name to be displayed on the map type control.
+            var styledMapType = new google.maps.StyledMapType(
+                [
+                    { elementType: 'geometry', stylers: [{ color: '#ebe3cd' }] },
+                    { elementType: 'labels.text.fill', stylers: [{ color: '#523735' }] },
+                    { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f1e6' }] },
+                    {
+                        featureType: 'administrative',
+                        elementType: 'geometry.stroke',
+                        stylers: [{ color: '#c9b2a6' }]
+                    },
+                    {
+                        featureType: 'administrative.land_parcel',
+                        elementType: 'geometry.stroke',
+                        stylers: [{ color: '#dcd2be' }]
+                    },
+                    {
+                        featureType: 'administrative.land_parcel',
+                        elementType: 'labels.text.fill',
+                        stylers: [{ color: '#ae9e90' }]
+                    },
+                    {
+                        featureType: 'landscape.natural',
+                        elementType: 'geometry',
+                        stylers: [{ color: '#dfd2ae' }]
+                    },
+                    {
+                        featureType: 'poi',
+                        elementType: 'geometry',
+                        stylers: [{ color: '#dfd2ae' }]
+                    },
+                    {
+                        featureType: 'poi',
+                        elementType: 'labels.text.fill',
+                        stylers: [{ color: '#93817c' }]
+                    },
+                    {
+                        featureType: 'poi.park',
+                        elementType: 'geometry.fill',
+                        stylers: [{ color: '#a5b076' }]
+                    },
+                    {
+                        featureType: 'poi.park',
+                        elementType: 'labels.text.fill',
+                        stylers: [{ color: '#447530' }]
+                    },
+                    {
+                        featureType: 'road',
+                        elementType: 'geometry',
+                        stylers: [{ color: '#f5f1e6' }]
+                    },
+                    {
+                        featureType: 'road.arterial',
+                        elementType: 'geometry',
+                        stylers: [{ color: '#fdfcf8' }]
+                    },
+                    {
+                        featureType: 'road.highway',
+                        elementType: 'geometry',
+                        stylers: [{ color: '#f8c967' }]
+                    },
+                    {
+                        featureType: 'road.highway',
+                        elementType: 'geometry.stroke',
+                        stylers: [{ color: '#e9bc62' }]
+                    },
+                    {
+                        featureType: 'road.highway.controlled_access',
+                        elementType: 'geometry',
+                        stylers: [{ color: '#e98d58' }]
+                    },
+                    {
+                        featureType: 'road.highway.controlled_access',
+                        elementType: 'geometry.stroke',
+                        stylers: [{ color: '#db8555' }]
+                    },
+                    {
+                        featureType: 'road.local',
+                        elementType: 'labels.text.fill',
+                        stylers: [{ color: '#806b63' }]
+                    },
+                    {
+                        featureType: 'transit.line',
+                        elementType: 'geometry',
+                        stylers: [{ color: '#dfd2ae' }]
+                    },
+                    {
+                        featureType: 'transit.line',
+                        elementType: 'labels.text.fill',
+                        stylers: [{ color: '#8f7d77' }]
+                    },
+                    {
+                        featureType: 'transit.line',
+                        elementType: 'labels.text.stroke',
+                        stylers: [{ color: '#ebe3cd' }]
+                    },
+                    {
+                        featureType: 'transit.station',
+                        elementType: 'geometry',
+                        stylers: [{ color: '#dfd2ae' }]
+                    },
+                    {
+                        featureType: 'water',
+                        elementType: 'geometry.fill',
+                        stylers: [{ color: '#b9d3c2' }]
+                    },
+                    {
+                        featureType: 'water',
+                        elementType: 'labels.text.fill',
+                        stylers: [{ color: '#92998d' }]
+                    }
+                ],
+                { name: 'Styled Map' });
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 24.967914, lng: 121.1917 },
+                zoom: 20,
+                mapTypeControlOptions: {
+                    mapTypeIds: [
+                        'styled_map']
+                }
+            });
+
+            var iconBase = 'http://140.115.236.71/demo-personal/DD102/web/I1900510/';
+            // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+            var icons = {
+                door: {
+                    name: 'door',
+                    icon: iconBase + '0.png'
+                },
+                shop: {
+                    name: 'shop',
+                    icon: iconBase + '1.png'
+                },
+                love: {
+                    name: 'love',
+                    icon: iconBase + '2.png'
+                },
+                higcar: {
+                    name: 'higcar',
+                    icon: iconBase + '3.png'
+                },
+                hoset: {
+                    name: 'hoset',
+                    icon: iconBase + '4.png'
+                },
+                monrr: {
+                    name: 'monrr',
+                    icon: iconBase + '5.png'
+                },
+                gunnn: {
+                    name: 'gunnn',
+                    icon: iconBase + '6.png'
+                }
+            };
+
+            //Associate the styled map with the MapTypeId and set it to display.
+            map.mapTypes.set('styled_map', styledMapType);
+            map.setMapTypeId('styled_map');
+
+            // Create an array of alphabetical characters used to label the markers.
+            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+            // Add some markers to the map.
+            // Note: The code uses the JavaScript Array.prototype.map() method to
+            // create an array of markers based on a given "locations" array.
+            // The map() method here has nothing to do with the Google Maps API.
+            // var markers = locations.map(function (location, i) {
+            //     return new google.maps.Marker({
+            //         position: location,
+            //         label: labels[i % labels.length]
+            //     });
+            // });
+
+            // Add a marker clusterer to manage the markers.
+            
+            // var markerCluster = new MarkerClusterer(map, markers,
+            //     { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+            
+            // var locations = [
+            // { lat: 24.968464, lng: 121.187889 },
+            // { lat: 24.969899, lng: 121.190120 },
+            // { lat: 24.969133, lng: 121.192335 },
+            // { lat: 24.970524, lng: 121.194883 },
+            // { lat: 24.968253, lng: 121.196085 },
+            // { lat: 24.966765, lng: 121.195586 },
+            // { lat: 24.966726, lng: 121.193628 },
+            // 上面是沒有特殊圖片的
+
+            var features = [
+                {
+                    position: new google.maps.LatLng(24.968464, 121.187889),
+                    type: 'door',
+
+                },
+                {
+                    position: new google.maps.LatLng(24.969899, 121.190120),
+                    type: 'shop'
+                },
+                {
+                    position: new google.maps.LatLng(24.969133, 121.192335),
+                    type: 'love'
+                },
+                {
+                    position: new google.maps.LatLng(24.970524, 121.194883),
+                    type: 'higcar'
+                },
+                {
+                    position: new google.maps.LatLng(24.968253, 121.196085),
+                    type: 'hoset'
+                },
+                {
+                    position: new google.maps.LatLng(24.966765, 121.195586),
+                    type: 'monrr'
+                },
+                {
+                    position: new google.maps.LatLng(24.966726, 121.193628),
+                    type: 'gunnn'
+                }
+            ]
+            // Create markers.
+            features.forEach(function (feature) {
+                var marker = new google.maps.Marker({
+                    position: feature.position,
+                    icon: icons[feature.type].icon,
+                    map: map
+                });
+            });
+
+            var legend = document.getElementById('legend');
+            for (var key in icons) {
+                var type = icons[key];
+                var name = type.name;
+                var icon = type.icon;
+                var div = document.createElement('div');
+                div.innerHTML = '<img src="' + icon + '"> ' + name;
+                legend.appendChild(div);
+            }
+
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+        }
+    </script>
+    <script
+        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+        </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2hu1nkCT-dK9x856FkDNqkW_N95lCNE4&callback=initMap">
+        </script>
+</body>
+
+</html>

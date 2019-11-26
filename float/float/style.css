@@ -1,0 +1,67 @@
+* {
+  outline: 1px solid red;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav #logo {
+  float: left;
+  padding: 16px;
+  padding-left: 25px;
+}
+
+.nav #logo img {
+  vertical-align: middle;
+}
+
+.nav nav {
+  padding: 42px;
+  float: left;
+  margin-left: 780px;
+}
+
+.nav nav ul li {
+  display: inline-block;
+  color: #fff;
+  margin-right: 38px;
+}
+
+.nav .button {
+  float: left;
+  padding: 32px;
+  padding-left: 86px;
+}
+
+.nav .button .donate {
+  height: 38px;
+  width: 135px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  padding-left: 35px;
+}
+
+.nav .button .donate a {
+  display: inline-block;
+  color: #fff;
+  width: 62px;
+  text-align: center;
+}
+
+.header {
+  background-color: black;
+  width: 100%;
+  padding-bottom: 50%;
+}
+/*# sourceMappingURL=style.css.map */

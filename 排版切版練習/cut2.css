@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+h1{
+    margin: 30px;
+}
+.wrap{
+    border: 2px solid #aaa;
+    width: 100%;
+    float: left;
+}
+img{
+    width: 50px;
+    border-radius: 50%;
+}
+p{
+    line-height: 1.7;
+}
+.left{
+    
+}
+.flex{
+    display: flex;
+}
+.flex img{
+    padding-top: 1em;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 960px;
+            background-color: #aaa;
+            margin: 100px auto;
+            font-size: 60px;
+            text-align: center;
+            line-height: 300px;
+        }
+        .box::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .clearfix {
+            background-color: #f0a;
+            clear: left;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 10px;
+            float: left;
+        }
+
+        .wrapA {
+            background-color: red;
+            height: 300px;
+        }
+
+        .wrapB {
+            background-color: #0af;
+            height: 300px;
+        }
+
+        .wrapC{
+            background-color: #a0f;
+            height: 300px;
+        }
+        .wrapD{
+            background-color: #af0;
+            height: 200px;
+        }
+
+        /* 第四個float會跟隨第三個的高度 */
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="wrap wrapA">A</div>
+        <div class="wrap wrapB">B</div>
+        <div class="wrap wrapC">C</div>
+    </div>
+</body>
+
+</html>

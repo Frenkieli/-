@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var dice;
+        var i;
+        var arr = new Array(1);
+        var z =5;
+        arr[0]= (Math.floor(Math.random() * 6)) + 1;
+        do {
+            dice = (Math.floor(Math.random() * 6)) + 1;
+        } while (arr.length<z);
+        document.write(arr);
+    </script>
+
+</body>
+
+</html>

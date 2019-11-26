@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: #ccc;
+            margin: 10px;
+            height: 50px;
+            width: 300px;
+            transition: 0.5s;
+        }
+
+        .move {
+            transform: rotateY(360deg);
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id='ddd' class="text1 move">1</div>
+    <div class="text2">2</div>
+    <div class="text3">3</div>
+    <div class="text4">4</div>
+    <div class="text5">5</div>
+    <div class="text6">6</div>
+    <div class="text7">7</div>
+    <div class="text8">8</div>
+    <div class="text9">9</div>
+    <div class="text10">10</div>
+    <div class="text11">11</div>
+    <div class="text12">12</div>
+    <div class="text13">13</div>
+    <div class="text14">14</div>
+    <div class="text15">15</div>
+    <div class="text16">16</div>
+    <div class="text17">17</div>
+    <div class="text18">18</div>
+    <div class="text19">19</div>
+    <div class="text20">20</div>
+    <div class="text21">21</div>
+    <div class="text22">22</div>
+    <div class="text23">23</div>
+    <div class="text24">24</div>
+    <div class="text25">25</div>
+    <div class="text26">26</div>
+    <div class="text27">27</div>
+    <div class="text28">28</div>
+    <div class="text29">29</div>
+    <div class="text30">30</div>
+    <div class="text31">31</div>
+    <div class="text32">32</div>
+    <div class="text33">33</div>
+    <div class="text34">34</div>
+    <div class="text35">35</div>
+    <div class="text36">36</div>
+    <div class="text37">37</div>
+    <div class="text38">38</div>
+    <div class="text39">39</div>
+    <div class="text40">40</div>
+    <div class="text41">41</div>
+    <div class="text42">42</div>
+    <div class="text43">43</div>
+    <div class="text44">44</div>
+    <div class="text45">45</div>
+    <div class="text46">46</div>
+    <div class="text47">47</div>
+    <div class="text48">48</div>
+    <div class="text49">49</div>
+    <div class="text50">50</div>
+    <div class="text51">51</div>
+    <div class="text52">52</div>
+    <div class="text53">53</div>
+    <div class="text54">54</div>
+    <div class="text55">55</div>
+    <div class="text56">56</div>
+    <div class="text57">57</div>
+    <div class="text58">58</div>
+    <div class="text59">59</div>
+    <div class="text60">60</div>
+    <div class="text61">61</div>
+    <div class="text62">62</div>
+    <div class="text63">63</div>
+    <div class="text64">64</div>
+    <div class="text65">65</div>
+    <div class="text66">66</div>
+    <div class="text67">67</div>
+    <div class="text68">68</div>
+    <div class="text69">69</div>
+    <div class="text70">70</div>
+    <div class="text71">71</div>
+    <div class="text72">72</div>
+    <div class="text73">73</div>
+    <div class="text74">74</div>
+    <div class="text75">75</div>
+    <div class="text76">76</div>
+    <div class="text77">77</div>
+    <div class="text78">78</div>
+    <div class="text79">79</div>
+    <div class="text80">80</div>
+    <div class="text81">81</div>
+    <div class="text82">82</div>
+    <div class="text83">83</div>
+    <div class="text84">84</div>
+    <div class="text85">85</div>
+    <div class="text86">86</div>
+    <div class="text87">87</div>
+    <div class="text88">88</div>
+    <div class="text89">89</div>
+    <div class="text90">90</div>
+    <div class="text91">91</div>
+    <div class="text92">92</div>
+    <div class="text93">93</div>
+    <div class="text94">94</div>
+    <div class="text95">95</div>
+    <div class="text96">96</div>
+    <div class="text97">97</div>
+    <div class="text98">98</div>
+    <div class="text99">99</div>
+    <div class="text100">100</div>
+    <script>
+        var texts = document.getElementsByTagName('div');
+        window.onscroll = function () {
+            var view = document.documentElement.scrollTop; //滾到哪
+            var viewhight = parseInt(window.outerHeight) //螢幕高度
+            var objh = document.getElementById('ddd').scrollHeight; //偵測物件高度
+            var obj = texts[50].offsetTop; ///物件滑鼠滾動位置
+            console.log(view,'滾到哪');
+            console.log(viewhight,'螢幕高度');
+            console.log(objh,'東西多高');
+            console.log(obj,'東西在畫面哪裡'); 
+            view += viewhight - (objh / 2);
+            texts[50].style.backgroundColor = "#fa0";
+
+            for (i = 0; i < texts.length; i++) {  //實際使用不會有這一段,這是測試用的
+                obj = texts[i].offsetTop;
+                if (obj < view) {
+                    open(texts[i]);
+                }else{
+                    texts[i].classList.remove('move');
+                }
+            }
+
+        }
+
+        function open(e) {
+
+            e.classList.add('move');
+
+        }
+    </script>
+</body>
+
+</html>

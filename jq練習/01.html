@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <h2>My First JavaScript</h2>
+
+    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+        Click me to display Date and Time.</button>
+
+    <p id="demo"></p>
+
+
+    <h2>我的第一個js程式</h2>
+
+    <input type="button" onclick="document.getElementById('demo1').innerHTML = Date()" value="Click">
+
+    <p id="demo1"></p>
+
+    <script>
+        var txt = "Hello World";
+        txt = txt.replace("Hello", "Welcome");
+        document.write(txt);
+        txt = txt.toUpperCase();
+        document.write(txt);
+    </script>
+    <hr> -->
+    <button id="demo">Click me</button>
+    <p id="text"></p>
+    <script>
+        document.getElementById("demo").addEventListener("click", myFunction);
+        function myFunction() {
+            document.getElementById("text").innerText="<a>";
+        };
+    </script>
+
+</body>
+
+</html>

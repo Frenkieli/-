@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .slider {
+            width: 600px;
+            height: 300px;
+            border: 5px solid #fa0;
+            overflow: hidden;
+            margin: auto;
+            position: relative;
+        }
+
+        .slider ul {
+            width: 2400px;
+            position: relative;
+            transition: 0.3s;
+            left: 0;
+        }
+
+        .slider li {
+            width: 600px;
+            float: left;
+        }
+
+        .slider img {
+            vertical-align: middle;
+        }
+
+        #left {
+            border: 30px solid #f00;
+            width: 0;
+            height: 0;
+            left: 0;
+            top: 50px;
+            position: absolute;
+            z-index: 9;
+            clip-path: polygon(100% 0,100% 100%,50% 50%);
+        }
+
+        #right {
+            border: 30px solid #f00;
+            width: 0;
+            height: 0;
+            right: 0;
+            top: 50px;
+            position: absolute;
+            z-index: 9;
+            clip-path: polygon(0 0,0 100%,50% 50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div id="left"></div>
+        <ul id="obj">
+            <li><img src="https://picsum.photos/600/300/?random=1"></li>
+            <li><img src="https://picsum.photos/600/300/?random=2"></li>
+            <li><img src="https://picsum.photos/600/300/?random=3"></li>
+            <li><img src="https://picsum.photos/600/300/?random=1"></li>
+        </ul>
+        <div id="right"></div>
+    </div>
+    <script>
+        var timeclock;
+        var obj = document.getElementById('obj');
+        var x = 0;
+        var right=document.getElementById('right');
+        var left =document.getElementById('left');
+        function moveright() {
+            if (x == -1800) {
+                obj.style.transition = '0s';
+                x = 0;
+                obj.style.left = x + 'px';
+                clearInterval(timeclock);
+                timeclock = setInterval(moveright, 3000);
+            } else {
+                obj.style.transition = '0.3s';
+                x = x - 600;
+                obj.style.left = x + 'px';
+            }
+        }
+        function moveleft(){
+            if (x >= 0) {
+                obj.style.transition = '0s';
+                x = -1800;
+                obj.style.left = x + 'px';
+                obj.one
+                clearInterval(timeclock);
+                timeclock = setInterval(moveright, 3000);
+            } else {
+                obj.style.transition = '0.3s';
+                x = x + 600;
+                obj.style.left = x + 'px';
+            }
+        }
+        function clickright() {
+            moveright()
+            clearInterval(timeclock);
+            timeclock = setInterval(moveright, 3000);
+        }
+        function clickleft() {
+            moveleft()
+            clearInterval(timeclock);
+            timeclock = setInterval(moveright, 3000);
+        }
+        function start() {
+            timeclock = setInterval(moveright, 3000);
+            right.addEventListener('click',clickright,false);
+            left.addEventListener('click',clickleft,false);
+        }
+
+        window.addEventListener('load', start, false)
+    </script>
+</body>
+
+</html>

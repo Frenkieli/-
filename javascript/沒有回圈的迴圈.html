@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>9*9乘法表</h1>
+    <table border="1">
+        <tr>
+            <script>
+                gogonum(1);
+                function gogonum(gogo) {
+                    function gogoXX(gogoX, gogoY) {
+                        let str = gogoY + "X" + gogoX + "=" + gogoX * gogoY;
+                        document.write("<td>" + str + "</td>");
+                        if (gogoY == 9) {
+                            gogoX++;
+                            document.write("<tr/><tr>");
+                            gogonum(gogoX);
+                        } else {
+                            gogoY++;
+                            gogoXX(gogoX, gogoY);
+                        }
+                    }
+                    if (gogo == 10) {
+                    } else {
+                        gogoXX(gogo, 1);
+                    }
+                }
+            </script>
+        </tr>
+    </table>
+</body>
+
+</html>

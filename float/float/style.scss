@@ -1,0 +1,57 @@
+* {
+    outline: 1px solid red;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+.nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    #logo {
+        float: left;
+        padding: 16px;
+        padding-left: 25px;
+        img {
+            vertical-align: middle;
+        }
+    }
+    nav {
+        padding: 42px;
+        float: left;
+        margin-left: 780px;
+        ul {
+            li {
+                display: inline-block;
+                color: #fff;
+                margin-right: 38px;
+            }
+        }
+    }
+    .button {
+        float: left;
+        padding: 32px;
+        padding-left: 86px;
+        .donate{
+            height: 38px;
+            width: 135px;
+            box-sizing: border-box;
+            padding: 10px;
+            padding-left: 35px;
+            a{
+                display: inline-block;
+                color: #fff;
+                width: 62px;
+                text-align: center;
+            }
+        }
+    }
+}
+.header {
+    background-color: black;
+    width: 100%;
+    padding-bottom: 50%;
+}

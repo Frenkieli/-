@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /**
+ * Drag and Drop Basic
+ **/
+        [draggable="true"] {
+            /*
+ To prevent user selecting inside the drag source
+*/
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        /* 取消預設事件 */
+
+        #drag-drop-basic {
+            display: flex;
+        }
+
+        /* 排物件 */
+
+        #drag-drop-basic #source-container {
+            height: 400px;
+            border: 2px solid #CCC;
+            flex: 1;
+            /* 這邊是flex-grow的簡寫*/
+            margin: 1rem;
+            /* 依據root的單位 */
+        }
+
+        #drag-drop-basic #target-container {
+            height: 400px;
+            border: 2px solid #CCC;
+            flex: 1;
+            margin: 1rem;
+        }
+
+        #drag-drop-basic #drag-source {
+            width: 100px;
+            height: 100px;
+            /* border-radius: 50%; */
+            background-color: steelblue;
+        }
+
+        #drag-drop-basic #drag-source:nth-child(1) {
+            background-image: url(https://picsum.photos/300/200/?random=1);
+        }
+
+        #drag-drop-basic #drag-source:nth-child(2) {
+            background-image: url(https://picsum.photos/300/200/?random=2);
+        }
+
+        #drag-drop-basic #drag-source:nth-child(3) {
+            background-image: url(https://picsum.photos/300/200/?random=3);
+        }
+
+        #drag-drop-basic #drag-source img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* // For drag sources */
+        .dragging {
+            opacity: .25;
+        }
+
+        /* // For drop target */
+        .hover {
+            background-color: rgba(0, 191, 165, .04);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="drag-drop-basic">
+        <div id="source-container" data-role="drag-drop-container">
+            <div id="drag-source" draggable="true">
+                <img src="https://picsum.photos/300/200/?random=1" draggable="false">
+            </div>
+        </div>
+        <div id="target-container" data-role="drag-drop-container"></div>
+    </div>
+
+    <script>
+        /**
+     * Drag and Drop Basic
+     */
+
+        let dragSource = document.querySelector('#drag-source');
+        dragSource.addEventListener('dragstart', dragStart);
+
+        let dropTarget = document.querySelector('#target-container');
+        dropTarget.addEventListener('drop', dropped);
+        dropTarget.addEventListener('dragenter', cancelDefault);
+        dropTarget.addEventListener('dragover', cancelDefault);
+
+        function cancelDefault(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            // 停止蔓延發生
+            return false;
+        }
+
+        function dragStart(e) {
+            console.log('dragStart');
+            e.dataTransfer.setData('text/plain', e.target.id);
+            //dataTransfer是用來保存拖動過程的資料 可參考 https://developer.mozilla.org/zh-TW/docs/Web/API/DataTransfer
+            //setData 是用來設定拖動中資料的資料狀態 https://developer.mozilla.org/zh-CN/docs/Web/API/DataTransfer/setData
+            // e.target.id e.target的id
+            console.log(e.target.id); //用檢查工具查看
+        }
+
+        function dropped(e) {
+            console.log('dropped');
+            cancelDefault(e);
+            // 取消預設事件 https://api.jquery.com/event.preventdefault/
+            let id = e.dataTransfer.getData('text/plain');
+            e.target.appendChild(document.querySelector('#' + id));
+            console.log(document.querySelector('#' + id));
+            // 增加一個子層document.querySelector('#' + id)
+        }
+        // End of Drag and Drop Basic
+        let dragSources = document.querySelectorAll('[draggable="true"]')
+        dragSources.forEach(dragSource => {
+            dragSource.addEventListener('dragstart', dragStart)
+        })
+
+        function dragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.id)
+        }
+        // Allow multiple dropped targets
+        let dropTargets = document.querySelectorAll('[data-role="drag-drop-container"]')
+        dropTargets.forEach(dropTarget => {
+            dropTarget.addEventListener('drop', dropped)
+            dropTarget.addEventListener('dragenter', cancelDefault)
+            dropTarget.addEventListener('dragover', cancelDefault)
+        })
+
+        function dropped(e) {
+            cancelDefault(e)
+            let id = e.dataTransfer.getData('text/plain')
+            e.target.appendChild(document.querySelector('#' + id))
+        }
+
+        function cancelDefault(e) {
+            e.preventDefault()
+            e.stopPropagation()
+            return false
+        }
+    </script>
+
+</body>
+
+</html>
