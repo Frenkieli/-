@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    body {
+      background-color: #000;
+      display: flex;
+      height: 100vh;
+    }
+
+    .item {
+      position: relative;
+      margin: auto;
+      width: 300px;
+      background: linear-gradient(0deg, #222, #444);
+      padding: 10px;
+      color: #fff;
+      box-sizing: border-box;
+    }
+    .item::before,.item::after{
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: 304px;
+      height: calc(100% + 4px);
+      background: linear-gradient(45deg,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000,#fb0094,#0000ff,#00ff00,#ffff00,#ff0000);
+      background-size: 400%;
+      z-index: -1;
+      animation: RGBmove 5s linear infinite alternate;
+    }
+    .item::after{
+      filter: blur(20px);
+    }
+    @keyframes RGBmove {
+      0%{
+        background-position: 0 0;
+      }
+      100%{
+        background-position: 100% 0;
+      }
+    }
+
+
+    .item_img {
+      margin: 10px;
+    }
+
+    .item_img img{
+      width: 100%;
+      vertical-align: top;
+    }
+
+    .item_txt {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="item">
+    <div class="item_img">
+      <img src="https://picsum.photos/300/200/?random=1">
+    </div>
+    <div class="item_txt">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi veniam corrupti obcaecati? Veritatis, deleniti
+      nobis magnam nostrum dignissimos repudiandae sunt assumenda deserunt aliquid! Provident ipsa, aut accusamus rerum
+      aliquid asperiores.
+    </div>
+  </div>
+</body>
+
+</html>
