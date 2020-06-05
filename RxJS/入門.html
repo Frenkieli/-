@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.5.5/rxjs.umd.min.js'></script>
+  <script>
+    var observable = rxjs.Observable
+      .create(function (observer) {
+        observer.next('Jerry'); // rxjsJS 4.x 以前的版本用 onNext
+        observer.next('Anna');
+        setTimeout(() => {
+          observer.next('RxJS 30 days!');
+        }, 30)
+      })
+
+    // 訂閱這個 observable	
+    console.log('start');
+    observable.subscribe(function (value) {
+      console.log(value);
+    });
+    console.log('end');
+
+  </script>
+</body>
+
+</html>
